@@ -58,8 +58,8 @@
   <!-- A) FORM -->
   <section id="sec-form" class="card">
     <form id="voteForm"
-          action="https://script.google.com/macros/s/AKfycbx4RUMQ0WKFyKJJCv2bZhXEwUNythkLUOe1NMG_gI44K9bDC-fssolk36iLbfHLIilK/exec"
-          method="POST" onsubmit="return false;">
+      action="https://script.google.com/macros/s/AKfycby505Mm3HhMg1xpyyqP6L7pkeJB9ln-p54waroPVZZIHLDjnbzY76x1lwrErcZknlAs/exec"
+      method="POST" onsubmit="return false;">
       <div class="row head"><div class="name">Ứng viên</div><div class="opt">Đồng ý</div><div class="opt">Không đồng ý</div></div>
 
       <!-- Đại biểu chính -->
@@ -127,8 +127,8 @@
 </div>
 
 <script>
-  // ————— Cấu hình —————
-  var SCRIPT_BASE = "https://script.google.com/macros/s/AKfycbx4RUMQ0WKFyKJJCv2bZhXEwUNythkLUOe1NMG_gI44K9bDC-fssolk36iLbfHLIilK/exec";
+  // ——— URL Apps Script (đÃ CẬP NHẬT) ———
+  var SCRIPT_BASE = "https://script.google.com/macros/s/AKfycby505Mm3HhMg1xpyyqP6L7pkeJB9ln-p54waroPVZZIHLDjnbzY76x1lwrErcZknlAs/exec";
 
   // DOM refs
   var voteForm = document.getElementById('voteForm');
@@ -144,17 +144,24 @@
   var timer    = null;
 
   // Tabs
-  function activate(tab){ 
-    if (tab==='vote'){ secForm.style.display='block'; secRes.style.display='none'; tabVote.classList.add('active'); tabResults.classList.remove('active'); }
-    else { secForm.style.display='none'; secRes.style.display='block'; tabResults.classList.add('active'); tabVote.classList.remove('active'); loadSummaryJSONP(); if (timer) clearInterval(timer); timer=setInterval(loadSummaryJSONP,5000); }
+  function activate(tab){
+    if (tab==='vote'){
+      secForm.style.display='block'; secRes.style.display='none';
+      tabVote.classList.add('active'); tabResults.classList.remove('active');
+      if (timer) { clearInterval(timer); timer=null; }
+    } else {
+      secForm.style.display='none'; secRes.style.display='block';
+      tabResults.classList.add('active'); tabVote.classList.remove('active');
+      loadSummaryJSONP();
+      if (timer) clearInterval(timer);
+      timer=setInterval(loadSummaryJSONP,5000);
+    }
   }
   tabVote.onclick    = function(){ activate('vote'); };
   tabResults.onclick = function(){ activate('results'); };
-
-  // Nếu có ?results=1 → mở tab kết quả, ngược lại mở Form
   (new URLSearchParams(location.search)).get('results') === '1' ? activate('results') : activate('vote');
 
-  // ====== GỬI PHIẾU: fetch no-cors ======
+  // Gửi phiếu: fetch no-cors (không cần đọc phản hồi)
   btn.addEventListener('click', function(){
     if (!voteForm.reportValidity()) return; // đảm bảo đã chọn đủ
     document.getElementById('submitted_at').value = new Date().toISOString();
@@ -168,7 +175,7 @@
       .finally(function(){ btn.disabled = false; });
   });
 
-  // ====== LẤY TÓM TẮT BẰNG JSONP (tránh CORS) ======
+  // Lấy tóm tắt bằng JSONP (tránh CORS)
   function loadSummaryJSONP(){
     statusEl.textContent = "Đang tải...";
     var cbName = "jsonp_cb_" + Date.now();
@@ -203,15 +210,18 @@
     statusEl.textContent = "Cập nhật: " + new Date().toLocaleTimeString();
   }
 
-  // ====== XÓA DỮ LIỆU ======
+  // XÓA DỮ LIỆU: gửi JSON no-cors, rồi reload summary
   document.getElementById('btnClear').addEventListener('click', function(){
     var pw = prompt("Nhập mật khẩu để XÓA DỮ LIỆU:");
     if (pw==null) return;
     fetch(SCRIPT_BASE, {
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({op:"clear", pw: pw})
-    }).then(function(){ loadSummaryJSONP(); });
+      body: JSON.stringify({op:"clear", pw: pw}),
+      mode:"no-cors"
+    }).finally(function(){
+      setTimeout(loadSummaryJSONP, 600);
+    });
   });
 </script>
 </body>
