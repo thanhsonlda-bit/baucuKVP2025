@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Phiếu bầu – Chi đoàn Khối Văn phòng (2025–2027)</title>
+<style>
+  :root{--blue:#0b74d1;--red:#e11d48;--muted:#64748b;--bg:#f8fafc;--bd:#e5e7eb;--ok:#16a34a;--err:#dc2626}
+  *{box-sizing:border-box}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(0deg,#fff,#f3f7fb);color:#0f172a;margin:0}
+  .container{max-width:980px;margin:0 auto;padding:20px}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .badge{background:var(--blue);color:#fff;padding:8px 12px;border-radius:999px;font-weight:700;letter-spacing:.3px}
+  h1{margin:0;font-size:22px}
+  .sub{color:var(--muted);font-size:14px}
+  .tabs{display:flex;gap:8px;margin:12px 0}
+  .tab{padding:8px 12px;border:1px solid var(--bd);border-radius:999px;background:#fff;cursor:pointer}
+  .tab.active{background:var(--blue);color:#fff;border-color:transparent}
+  .card{border:1px solid var(--bd);background:#fff;border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 4px 20px rgba(2,36,89,.06)}
+  .row{display:grid;grid-template-columns:1fr 140px 140px;gap:8px;align-items:center}
+  .row.head{font-weight:700;background:var(--bg);border-radius:10px;padding:10px}
+  .name{padding:8px}
+  .opt{text-align:center}
+  input[type=radio]{transform:scale(1.15)}
+  .actions{display:flex;gap:10px;align-items:center;margin-top:14px}
+  button{padding:10px 16px;border:0;border-radius:12px;background:var(--blue);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 6px 16px rgba(11,116,209,.2)}
+  button:disabled{opacity:.6;cursor:not-allowed}
+  .muted{color:var(--muted);font-size:14px}
+  .ok{color:var(--ok)} .err{color:var(--err)}
+  h2{margin:0 0 8px;font-size:20px}
+  .topline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .pill{padding:4px 10px;border-radius:999px;background:#eef6ff;border:1px solid #cfe8ff;color:#0b3e91;font-weight:700}
+  .danger{background:var(--red);color:#fff;border-color:transparent}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{border-bottom:1px solid var(--bd);padding:10px 8px;text-align:left}
+  th{background:var(--bg)}
+  .bar{height:10px;border-radius:999px;background:#e5e7eb;position:relative;overflow:hidden}
+  .bar>span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--blue),#22c55e)}
+  footer{margin:18px 0 8px;color:#94a3b8;text-align:center;font-size:12px}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="badge">ĐOÀN LDA</div>
+    <div>
+      <h1>PHIẾU BẦU ĐẠI BIỂU DỰ ĐẠI HỘI ĐOÀN THANH NIÊN CÔNG TY 2025–2030</h1>
+      <div class="sub">Chi đoàn Khối Văn phòng – Công ty Nhôm Lâm Đồng - TKV</div>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <div id="tabVote" class="tab active">Bỏ phiếu</div>
+    <div id="tabResults" class="tab">Tỷ lệ (BTC)</div>
+  </div>
+
+  <!-- A) FORM -->
+  <section id="sec-form" class="card">
+    <form id="voteForm"
+          action="https://script.google.com/macros/s/AKfycbx4RUMQ0WKFyKJJCv2bZhXEwUNythkLUOe1NMG_gI44K9bDC-fssolk36iLbfHLIilK/exec"
+          method="POST" onsubmit="return false;">
+      <div class="row head"><div class="name">Ứng viên</div><div class="opt">Đồng ý</div><div class="opt">Không đồng ý</div></div>
+
+      <!-- Đại biểu chính -->
+      <div class="row"><div class="name">1. TRẦN THANH SƠN</div>
+        <label class="opt"><input type="radio" name="SON_1" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="SON_1" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">2. THÂN NGUYỄN MINH HUY</div>
+        <label class="opt"><input type="radio" name="HUY_2" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="HUY_2" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">3. NGUYỄN DƯƠNG MAI NHUNG</div>
+        <label class="opt"><input type="radio" name="NHUNG_3" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="NHUNG_3" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">4. TRẦN THANH CẢNH</div>
+        <label class="opt"><input type="radio" name="CANH_4" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="CANH_4" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">5. VÕ VĂN HIẾU</div>
+        <label class="opt"><input type="radio" name="HIEU_5" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="HIEU_5" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">6. NGUYỄN THỊ THÙY TRANG</div>
+        <label class="opt"><input type="radio" name="TRANG_6" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="TRANG_6" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">7. LÊ HỮU MINH</div>
+        <label class="opt"><input type="radio" name="MINH_7" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="MINH_7" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">8. THÁI THỊ CHÂU</div>
+        <label class="opt"><input type="radio" name="CHAU_8" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="CHAU_8" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">9. TRẦN DANH KHOA</div>
+        <label class="opt"><input type="radio" name="KHOA_9" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="KHOA_9" value="Không đồng ý"></label></div>
+      <div class="row"><div class="name">10. NGUYỄN ANH TRẠNG</div>
+        <label class="opt"><input type="radio" name="TRANG_10" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="TRANG_10" value="Không đồng ý"></label></div>
+
+      <hr style="margin:16px 0;border:none;border-top:1px dashed var(--bd)" />
+      <div class="row head"><div class="name">Dự khuyết</div><div></div><div></div></div>
+      <div class="row"><div class="name">1. NGUYỄN MINH TRÍ</div>
+        <label class="opt"><input type="radio" name="TRI_DK_1" value="Đồng ý" required></label>
+        <label class="opt"><input type="radio" name="TRI_DK_1" value="Không đồng ý"></label></div>
+
+      <input type="hidden" name="submitted_at" id="submitted_at" />
+      <div class="actions">
+        <button id="btnSubmit" type="button">Gửi phiếu</button>
+        <span id="msg" class="muted"></span>
+      </div>
+    </form>
+  </section>
+
+  <!-- B) KẾT QUẢ -->
+  <section id="sec-results" class="card" style="display:none">
+    <h2>TỶ LỆ PHIẾU</h2>
+    <div class="muted">Tự động cập nhật mỗi 5 giây</div>
+    <div class="topline">
+      <span>Tổng số phiếu:</span> <span id="total" class="pill">0</span>
+      <button id="btnClear" class="pill danger" title="Nhập mật khẩu để xóa dữ liệu">XÓA DỮ LIỆU</button>
+      <span id="status" class="muted">—</span>
+    </div>
+    <table id="tbl">
+      <thead><tr><th>Ứng viên</th><th>Đồng ý</th><th>Không đồng ý</th><th>% Đồng ý</th><th>Biểu đồ</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <footer>© Chi đoàn Khối Văn phòng</footer>
+</div>
+
+<script>
+  // ————— Cấu hình —————
+  var SCRIPT_BASE = "https://script.google.com/macros/s/AKfycbx4RUMQ0WKFyKJJCv2bZhXEwUNythkLUOe1NMG_gI44K9bDC-fssolk36iLbfHLIilK/exec";
+
+  // DOM refs
+  var voteForm = document.getElementById('voteForm');
+  var secForm  = document.getElementById('sec-form');
+  var secRes   = document.getElementById('sec-results');
+  var msg      = document.getElementById('msg');
+  var btn      = document.getElementById('btnSubmit');
+  var totalEl  = document.getElementById('total');
+  var statusEl = document.getElementById('status');
+  var tblBody  = document.querySelector('#tbl tbody');
+  var tabVote  = document.getElementById('tabVote');
+  var tabResults = document.getElementById('tabResults');
+  var timer    = null;
+
+  // Tabs
+  function activate(tab){ 
+    if (tab==='vote'){ secForm.style.display='block'; secRes.style.display='none'; tabVote.classList.add('active'); tabResults.classList.remove('active'); }
+    else { secForm.style.display='none'; secRes.style.display='block'; tabResults.classList.add('active'); tabVote.classList.remove('active'); loadSummaryJSONP(); if (timer) clearInterval(timer); timer=setInterval(loadSummaryJSONP,5000); }
+  }
+  tabVote.onclick    = function(){ activate('vote'); };
+  tabResults.onclick = function(){ activate('results'); };
+
+  // Nếu có ?results=1 → mở tab kết quả, ngược lại mở Form
+  (new URLSearchParams(location.search)).get('results') === '1' ? activate('results') : activate('vote');
+
+  // ====== GỬI PHIẾU: fetch no-cors ======
+  btn.addEventListener('click', function(){
+    if (!voteForm.reportValidity()) return; // đảm bảo đã chọn đủ
+    document.getElementById('submitted_at').value = new Date().toISOString();
+    msg.textContent = "Đang gửi..."; msg.className = "muted";
+    btn.disabled = true;
+
+    var fd = new FormData(voteForm);
+    fetch(SCRIPT_BASE, { method: 'POST', body: fd, mode: 'no-cors' })
+      .then(function(){ activate('results'); })
+      .catch(function(err){ console.error(err); msg.textContent = "Không gửi được phiếu: " + String(err); msg.className = "err"; })
+      .finally(function(){ btn.disabled = false; });
+  });
+
+  // ====== LẤY TÓM TẮT BẰNG JSONP (tránh CORS) ======
+  function loadSummaryJSONP(){
+    statusEl.textContent = "Đang tải...";
+    var cbName = "jsonp_cb_" + Date.now();
+    window[cbName] = function(resp){
+      try{
+        if (!resp || !resp.ok) throw new Error("No data");
+        renderSummary(resp.data);
+      } catch(e){ statusEl.textContent = "Lỗi tải dữ liệu"; }
+      cleanup();
+    };
+    var s = document.createElement('script');
+    s.src = SCRIPT_BASE + "?summary=1&callback="+cbName+"&_=" + Date.now();
+    s.onerror = function(){ statusEl.textContent = "Lỗi tải dữ liệu"; cleanup(); };
+    document.body.appendChild(s);
+    function cleanup(){ delete window[cbName]; s.remove(); }
+  }
+
+  function renderSummary(obj){
+    totalEl.textContent = obj.total || 0;
+    tblBody.innerHTML = "";
+    (obj.items || []).forEach(function(it){
+      var pct = Math.round((it.pct||0)*100);
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>"+it.name+"</td>"+
+        "<td>"+it.agree+"</td>"+
+        "<td>"+it.disagree+"</td>"+
+        "<td><b>"+pct+"%</b></td>"+
+        "<td><div class='bar'><span style='width:"+pct+"%'></span></div></td>";
+      tblBody.appendChild(tr);
+    });
+    statusEl.textContent = "Cập nhật: " + new Date().toLocaleTimeString();
+  }
+
+  // ====== XÓA DỮ LIỆU ======
+  document.getElementById('btnClear').addEventListener('click', function(){
+    var pw = prompt("Nhập mật khẩu để XÓA DỮ LIỆU:");
+    if (pw==null) return;
+    fetch(SCRIPT_BASE, {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({op:"clear", pw: pw})
+    }).then(function(){ loadSummaryJSONP(); });
+  });
+</script>
+</body>
+</html>
