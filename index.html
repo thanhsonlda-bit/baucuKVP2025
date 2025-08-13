@@ -30,6 +30,7 @@
   h2{margin:0 0 8px;font-size:20px}
   .topline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
   .pill{padding:4px 10px;border-radius:999px;background:#eef6ff;border:1px solid #cfe8ff;color:#0b3e91;font-weight:700}
+  .tag{margin-left:6px;font-size:12px;padding:2px 8px;border-radius:999px;background:#eaf7ee;color:#126b2c;border:1px solid #c8edcf}
   .danger{background:var(--red);color:#fff;border-color:transparent}
   table{width:100%;border-collapse:collapse;margin-top:12px}
   th,td{border-bottom:1px solid var(--bd);padding:10px 8px;text-align:left}
@@ -60,42 +61,56 @@
     <form id="voteForm"
       action="https://script.google.com/macros/s/AKfycby505Mm3HhMg1xpyyqP6L7pkeJB9ln-p54waroPVZZIHLDjnbzY76x1lwrErcZknlAs/exec"
       method="POST" onsubmit="return false;">
+
       <div class="row head"><div class="name">Ứng viên</div><div class="opt">Đồng ý</div><div class="opt">Không đồng ý</div></div>
 
-      <!-- Đại biểu chính -->
-      <div class="row"><div class="name">1. TRẦN THANH SƠN</div>
-        <label class="opt"><input type="radio" name="SON_1" value="Đồng ý" required></label>
-        <label class="opt"><input type="radio" name="SON_1" value="Không đồng ý"></label></div>
+      <!-- Đại biểu đương nhiên (tự “Đồng ý”, không chỉnh) -->
+      <div class="row"><div class="name">1. TRẦN THANH SƠN <span class="tag">Đại biểu đương nhiên</span></div>
+        <div class="opt"><b>Đồng ý</b></div><div class="opt" style="color:var(--muted)">—</div></div>
+      <input type="hidden" name="SON_1" value="Đồng ý">
+
       <div class="row"><div class="name">2. THÂN NGUYỄN MINH HUY</div>
         <label class="opt"><input type="radio" name="HUY_2" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="HUY_2" value="Không đồng ý"></label></div>
+
       <div class="row"><div class="name">3. NGUYỄN DƯƠNG MAI NHUNG</div>
         <label class="opt"><input type="radio" name="NHUNG_3" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="NHUNG_3" value="Không đồng ý"></label></div>
-      <div class="row"><div class="name">4. TRẦN THANH CẢNH</div>
-        <label class="opt"><input type="radio" name="CANH_4" value="Đồng ý" required></label>
-        <label class="opt"><input type="radio" name="CANH_4" value="Không đồng ý"></label></div>
-      <div class="row"><div class="name">5. VÕ VĂN HIẾU</div>
-        <label class="opt"><input type="radio" name="HIEU_5" value="Đồng ý" required></label>
-        <label class="opt"><input type="radio" name="HIEU_5" value="Không đồng ý"></label></div>
-      <div class="row"><div class="name">6. NGUYỄN THỊ THÙY TRANG</div>
-        <label class="opt"><input type="radio" name="TRANG_6" value="Đồng ý" required></label>
-        <label class="opt"><input type="radio" name="TRANG_6" value="Không đồng ý"></label></div>
+
+      <!-- Đại biểu đương nhiên -->
+      <div class="row"><div class="name">4. TRẦN THANH CẢNH <span class="tag">Đại biểu đương nhiên</span></div>
+        <div class="opt"><b>Đồng ý</b></div><div class="opt" style="color:var(--muted)">—</div></div>
+      <input type="hidden" name="CANH_4" value="Đồng ý">
+
+      <!-- Đại biểu đương nhiên -->
+      <div class="row"><div class="name">5. VÕ VĂN HIẾU <span class="tag">Đại biểu đương nhiên</span></div>
+        <div class="opt"><b>Đồng ý</b></div><div class="opt" style="color:var(--muted)">—</div></div>
+      <input type="hidden" name="HIEU_5" value="Đồng ý">
+
+      <!-- Đại biểu đương nhiên -->
+      <div class="row"><div class="name">6. NGUYỄN THỊ THÙY TRANG <span class="tag">Đại biểu đương nhiên</span></div>
+        <div class="opt"><b>Đồng ý</b></div><div class="opt" style="color:var(--muted)">—</div></div>
+      <input type="hidden" name="TRANG_6" value="Đồng ý">
+
       <div class="row"><div class="name">7. LÊ HỮU MINH</div>
         <label class="opt"><input type="radio" name="MINH_7" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="MINH_7" value="Không đồng ý"></label></div>
+
       <div class="row"><div class="name">8. THÁI THỊ CHÂU</div>
         <label class="opt"><input type="radio" name="CHAU_8" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="CHAU_8" value="Không đồng ý"></label></div>
+
       <div class="row"><div class="name">9. TRẦN DANH KHOA</div>
         <label class="opt"><input type="radio" name="KHOA_9" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="KHOA_9" value="Không đồng ý"></label></div>
+
       <div class="row"><div class="name">10. NGUYỄN ANH TRẠNG</div>
         <label class="opt"><input type="radio" name="TRANG_10" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="TRANG_10" value="Không đồng ý"></label></div>
 
       <hr style="margin:16px 0;border:none;border-top:1px dashed var(--bd)" />
       <div class="row head"><div class="name">Dự khuyết</div><div></div><div></div></div>
+
       <div class="row"><div class="name">1. NGUYỄN MINH TRÍ</div>
         <label class="opt"><input type="radio" name="TRI_DK_1" value="Đồng ý" required></label>
         <label class="opt"><input type="radio" name="TRI_DK_1" value="Không đồng ý"></label></div>
@@ -127,8 +142,23 @@
 </div>
 
 <script>
-  // ——— URL Apps Script (đÃ CẬP NHẬT) ———
+  // URL Apps Script
   var SCRIPT_BASE = "https://script.google.com/macros/s/AKfycby505Mm3HhMg1xpyyqP6L7pkeJB9ln-p54waroPVZZIHLDjnbzY76x1lwrErcZknlAs/exec";
+
+  // Map mã cột -> Họ tên đầy đủ (dùng cho bảng tỷ lệ)
+  const NAME_MAP = {
+    SON_1:   "Trần Thanh Sơn",
+    HUY_2:   "Thân Nguyễn Minh Huy",
+    NHUNG_3: "Nguyễn Dương Mai Nhung",
+    CANH_4:  "Trần Thanh Cảnh",
+    HIEU_5:  "Võ Văn Hiếu",
+    TRANG_6: "Nguyễn Thị Thùy Trang",
+    MINH_7:  "Lê Hữu Minh",
+    CHAU_8:  "Thái Thị Châu",
+    KHOA_9:  "Trần Danh Khoa",
+    TRANG_10:"Nguyễn Anh Trạng",
+    TRI_DK_1:"Nguyễn Minh Trí",
+  };
 
   // DOM refs
   var voteForm = document.getElementById('voteForm');
@@ -161,9 +191,20 @@
   tabResults.onclick = function(){ activate('results'); };
   (new URLSearchParams(location.search)).get('results') === '1' ? activate('results') : activate('vote');
 
-  // Gửi phiếu: fetch no-cors (không cần đọc phản hồi)
+  // ====== Gửi phiếu ======
   btn.addEventListener('click', function(){
-    if (!voteForm.reportValidity()) return; // đảm bảo đã chọn đủ
+    const fields = ["SON_1","HUY_2","NHUNG_3","CANH_4","HIEU_5","TRANG_6","MINH_7","CHAU_8","KHOA_9","TRANG_10","TRI_DK_1"];
+
+    // Kiểm tra: radio đã chọn hoặc có hidden input (đại biểu đương nhiên)
+    for (let i=0;i<fields.length;i++){
+      const name = fields[i];
+      const hasHidden = !!document.querySelector('input[name="'+name+'"][type="hidden"]');
+      const checked = document.querySelector('input[name="'+name+'"]:checked');
+      if (!hasHidden && !checked){
+        msg.textContent = "Vui lòng chọn đủ tất cả ứng viên."; msg.className="err"; return;
+      }
+    }
+
     document.getElementById('submitted_at').value = new Date().toISOString();
     msg.textContent = "Đang gửi..."; msg.className = "muted";
     btn.disabled = true;
@@ -175,7 +216,7 @@
       .finally(function(){ btn.disabled = false; });
   });
 
-  // Lấy tóm tắt bằng JSONP (tránh CORS)
+  // ====== LẤY TÓM TẮT BẰNG JSONP ======
   function loadSummaryJSONP(){
     statusEl.textContent = "Đang tải...";
     var cbName = "jsonp_cb_" + Date.now();
@@ -198,9 +239,10 @@
     tblBody.innerHTML = "";
     (obj.items || []).forEach(function(it){
       var pct = Math.round((it.pct||0)*100);
+      var fullName = NAME_MAP[it.name] || it.name;
       var tr = document.createElement("tr");
       tr.innerHTML =
-        "<td>"+it.name+"</td>"+
+        "<td>"+fullName+"</td>"+
         "<td>"+it.agree+"</td>"+
         "<td>"+it.disagree+"</td>"+
         "<td><b>"+pct+"%</b></td>"+
@@ -210,7 +252,7 @@
     statusEl.textContent = "Cập nhật: " + new Date().toLocaleTimeString();
   }
 
-  // XÓA DỮ LIỆU: gửi JSON no-cors, rồi reload summary
+  // ====== XÓA DỮ LIỆU ======
   document.getElementById('btnClear').addEventListener('click', function(){
     var pw = prompt("Nhập mật khẩu để XÓA DỮ LIỆU:");
     if (pw==null) return;
